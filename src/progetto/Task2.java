@@ -154,6 +154,10 @@ public class Task2 {
                 }
                 if(ingegnere>1 || architetto>1 || geometra>1) return false;
             }
+            ingegnere = 0;
+            architetto = 0;
+            geometra = 0;
+            impiegatiLavoro.clear();
         }
         return true;
     }
