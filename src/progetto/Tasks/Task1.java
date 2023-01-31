@@ -265,15 +265,19 @@ public class Task1 implements taskStructure{
                 if(element.getGrandezza().equals(dimensione) && element.getLavoriSuTerritorio().size()!=0)
                     cittaGrandezzaCorrente.add(element);
             }
+
             for(Citta elemento: cittaGrandezzaCorrente){
                 for(String lavoroString:elemento.getLavoriSuTerritorio()){
                     for(Lavoro lavoro:lavori)
                         if(lavoroString.equals(lavoro.getID())) impiegatiCitta.addAll(lavoro.getImpiegatiAssegnati());
 
                 }
-                for(Impiegato impiegato:impiegati)
-                    if(impiegatiCitta.contains(impiegato.getID())) counterImpiegati[i]++;
             }
+
+            for(Impiegato impiegato:impiegati)
+                if(impiegatiCitta.contains(impiegato.getID()))
+                    counterImpiegati[i]++;
+
             cittaGrandezzaCorrente.clear();
             impiegatiCitta.clear();
             i++;
