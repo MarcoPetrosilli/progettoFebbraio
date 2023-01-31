@@ -1,12 +1,13 @@
-package progetto.Tasks;
+package progetto.tasks;
 
-import progetto.Classes.Citta;
-import progetto.Classes.Impiegato;
-import progetto.Classes.Lavoro;
+import progetto.classes.Citta;
+import progetto.classes.Impiegato;
+import progetto.classes.Lavoro;
+import progetto.interfaces.ITaskStructure;
 
 import java.util.ArrayList;
 
-public class Task2 implements taskStructure{
+public class Task2 implements ITaskStructure {
 
     private final int[] pqr;
     private final Impiegato[] impiegati;

@@ -1,10 +1,11 @@
-package progetto.Tasks;
+package progetto.tasks;
 
-import progetto.Classes.Lavoro;
+import progetto.classes.Lavoro;
+import progetto.interfaces.ITaskStructure;
 
 import java.util.ArrayList;
 
-public class Task3 implements taskStructure{
+public class Task3 implements ITaskStructure {
 
     private final ArrayList<Lavoro> serieLavori;
     int tempoDisponibile;

@@ -1,17 +1,16 @@
-package progetto.Classes;
+package progetto.classes;
+
+import progetto.enums.TipoCitta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Stack;
 
 public class Citta {
     private String nome;
-    private String grandezza;
+    private TipoCitta grandezza;
     private ArrayList<String> lavoriSuTerritorio;
 
-    public static ArrayList<String> dimensioniPossibili = new ArrayList<String>(Arrays.asList("piccola","media","grande"));
-
-    public Citta(String nome, String grandezza, ArrayList<String> lavoriSuTerritorio){
+    public Citta(String nome, TipoCitta grandezza, ArrayList<String> lavoriSuTerritorio){
         this.nome=nome;
         this.grandezza=grandezza;
         this.lavoriSuTerritorio=lavoriSuTerritorio;
@@ -21,7 +20,7 @@ public class Citta {
         return nome;
     }
 
-    public String getGrandezza() {
+    public TipoCitta getGrandezza() {
         return grandezza;
     }
 

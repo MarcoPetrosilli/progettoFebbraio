@@ -1,12 +1,14 @@
-package progetto.Tasks;
+package progetto.tasks;
 
-import progetto.Classes.Citta;
-import progetto.Classes.Impiegato;
-import progetto.Classes.Lavoro;
+import progetto.classes.Citta;
+import progetto.classes.Impiegato;
+import progetto.classes.Lavoro;
+import progetto.enums.TipoCitta;
+import progetto.interfaces.ITaskStructure;
 
 import java.util.ArrayList;
 
-public class Task1 implements taskStructure{
+public class Task1 implements ITaskStructure {
 
     private final Impiegato[] impiegati;
     private final Citta[] citta;
@@ -172,14 +174,13 @@ public class Task1 implements taskStructure{
         }
     }
 
-    public int equalsGrandezzaCitta(String grandezza1, String grandezza2){
+    public int equalsGrandezzaCitta(TipoCitta grandezza1, TipoCitta grandezza2){
         int[] pesiGrandezza = {0,1,2};
-        String[] grandezzePossibili = {"piccola","media","grande"};
 
-        for(int i=0;i<grandezzePossibili.length;i++){
-            if(grandezza1.equals(grandezzePossibili[i]))
-                for(int j=0;j<grandezzePossibili.length;j++)
-                    if(grandezza2.equals(grandezzePossibili[j]))
+        for(int i=0;i<TipoCitta.values().length;i++){
+            if(grandezza1.equals(TipoCitta.values()[i]))
+                for(int j=0;j<TipoCitta.values().length;j++)
+                    if(grandezza2.equals(TipoCitta.values()[j]))
                         return pesiGrandezza[i]-pesiGrandezza[j];
         }
         return 0;
@@ -249,7 +250,7 @@ public class Task1 implements taskStructure{
 
     ////////////////////////////////////////////////// PUNTO 7
     public void stampa7(){
-        int[] counterImpiegati = new int[Citta.dimensioniPossibili.size()];
+        int[] counterImpiegati = new int[TipoCitta.values().length];
 
         this.contaPerDimensione(counterImpiegati);
         System.out.println(counterImpiegati[0]+" "+counterImpiegati[1]+" "+counterImpiegati[2]);
@@ -260,7 +261,7 @@ public class Task1 implements taskStructure{
         ArrayList<String> impiegatiCitta = new ArrayList<>();
         int i=0;
 
-        for(String dimensione:Citta.dimensioniPossibili){
+        for(TipoCitta dimensione:TipoCitta.values()){
             for(Citta element:citta){
                 if(element.getGrandezza().equals(dimensione) && element.getLavoriSuTerritorio().size()!=0)
                     cittaGrandezzaCorrente.add(element);

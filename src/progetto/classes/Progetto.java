@@ -1,10 +1,10 @@
-package progetto.Classes;
+package progetto.classes;
 
-import progetto.Utilities.IntBoxer;
-import progetto.Utilities.LeggiFile;
-import progetto.Tasks.Task1;
-import progetto.Tasks.Task2;
-import progetto.Tasks.Task3;
+import progetto.utilities.IntBoxer;
+import progetto.utilities.LeggiFile;
+import progetto.tasks.Task1;
+import progetto.tasks.Task2;
+import progetto.tasks.Task3;
 
 import java.util.ArrayList;
 import java.util.List;

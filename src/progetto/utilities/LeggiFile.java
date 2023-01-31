@@ -1,8 +1,9 @@
-package progetto.Utilities;
+package progetto.utilities;
 
-import progetto.Classes.Citta;
-import progetto.Classes.Impiegato;
-import progetto.Classes.Lavoro;
+import progetto.classes.Citta;
+import progetto.classes.Impiegato;
+import progetto.classes.Lavoro;
+import progetto.enums.TipoCitta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +71,7 @@ public class LeggiFile {
     public Citta leggiCitta(List<String> lines,IntBoxer index){
         String[] tokenizedLine=lines.get(index.value).split(" ");
         String ID=tokenizedLine[0];
-        String grandezza = tokenizedLine[1];
+        TipoCitta grandezza = TipoCitta.valueOf(tokenizedLine[1]);
         String linesDaSplittare = tokenizedLine[2];
         String[] Array=linesDaSplittare.split(",");
         ArrayList<String> lavori = new ArrayList<String>();
