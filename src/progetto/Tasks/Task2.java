@@ -6,24 +6,36 @@ import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 
-public class Task2 {
+public class Task2 implements taskStructure{
 
-    ////////////////////////////////////////////////// PUNTO 1
+    private final int[] pqr;
+    private final Impiegato[] impiegati;
+    private final Citta[] citta;
+    private final Lavoro[] lavori;
 
-    public void eseguiTask(int[] pqr, Lavoro[] lavori, Citta[] citta, Impiegato[] impiegati){
-        if(this.controllo(pqr,lavori,citta,impiegati))
+    public Task2(int[] pqr,Impiegato[] impiegati,Citta[] citta,Lavoro[] lavori){
+        this.pqr=pqr;
+        this.impiegati=impiegati;
+        this.citta=citta;
+        this.lavori=lavori;
+    }
+    ////////////////////////////////////////////////// ESEGUI TASK
+
+    @Override
+    public void eseguiTask() {
+        if(this.controllo())
             System.out.println("YES");
         else
             System.out.println("NO");
     }
 
-    public boolean controllo(int[] pqr,Lavoro[] lavori,Citta[] citta,Impiegato[] impiegati){
-        return (this.controlla1(pqr,lavori) && this.controlla2(pqr,lavori,impiegati,citta) && this.controlla3(citta,lavori) && this.controlla4(impiegati,lavori));
+    public boolean controllo(){
+        return (this.controlla1() && this.controlla2() && this.controlla3() && this.controlla4());
     }
 
     ////////////////////////////////////////////////// PUNTO 1
 
-    public boolean controlla1(int[] pqr,Lavoro[] lavori){
+    public boolean controlla1(){
         int counter=0;
         for(Lavoro lavoro:lavori){
             if(lavoro.getDurata()>pqr[0]){
@@ -36,7 +48,7 @@ public class Task2 {
 
     ////////////////////////////////////////////////// PUNTO 2
 
-    public boolean controlla2(int[] pqr,Lavoro[] lavori,Impiegato[] impiegati,Citta[] citta){
+    public boolean controlla2(){
         int counterCittaMaggiori=0;
         int counterCittaMinori=0;
         ArrayList<Integer> totCostoInPiuCitta = new ArrayList<>();
@@ -44,7 +56,7 @@ public class Task2 {
 
         for(Impiegato impiegato:impiegati){
             //Calcola costo totale in tutte le citta che coinvolgono impiegato
-            this.popolaTotCostoInPiuCitta(citta,lavori,impiegato,lavoriImpiegato,totCostoInPiuCitta);
+            this.popolaTotCostoInPiuCitta(impiegato,lavoriImpiegato,totCostoInPiuCitta);
             //Controlla condizione
             for(Integer sum : totCostoInPiuCitta){
                 if(sum>pqr[2]){
@@ -63,7 +75,7 @@ public class Task2 {
         return true;
     }
 
-    public void trovaLavoriImpiegato(Lavoro[] lavori,Citta elemento,Impiegato impiegato,ArrayList<Lavoro> lavoriImpiegato){
+    public void trovaLavoriImpiegato(Citta elemento,Impiegato impiegato,ArrayList<Lavoro> lavoriImpiegato){
         for(Lavoro lavoro:lavori){
             if(elemento.getLavoriSuTerritorio().contains(lavoro.getID()) && lavoro.getImpiegatiAssegnati().contains(impiegato.getID()))
                 lavoriImpiegato.add(lavoro);
@@ -78,11 +90,11 @@ public class Task2 {
         return sommaCostoLavori;
     }
 
-    public void popolaTotCostoInPiuCitta(Citta[] citta,Lavoro[] lavori,Impiegato impiegato,ArrayList<Lavoro> lavoriImpiegato,ArrayList<Integer> totCostoInPiuCitta){
+    public void popolaTotCostoInPiuCitta(Impiegato impiegato,ArrayList<Lavoro> lavoriImpiegato,ArrayList<Integer> totCostoInPiuCitta){
         int sommaCostoLavori;
         for(Citta elemento:citta){
             //Trova lavori di Impiegato in Citta
-            this.trovaLavoriImpiegato(lavori,elemento,impiegato,lavoriImpiegato);
+            this.trovaLavoriImpiegato(elemento,impiegato,lavoriImpiegato);
             //Calcola valore tot lavori in Citta e se diversa da 0 aggiungi
             sommaCostoLavori=this.calcolaSommaLavori(lavoriImpiegato);
             if(sommaCostoLavori!=0)
@@ -93,7 +105,7 @@ public class Task2 {
 
     ////////////////////////////////////////////////// PUNTO 3
 
-    public boolean controlla3(Citta[] citta,Lavoro[] lavori){
+    public boolean controlla3(){
         int ristrutturazione = 0;
         int ritocco = 0;
         int costruzione = 0;
@@ -101,7 +113,7 @@ public class Task2 {
 
         for(Citta elemento:citta){
             //popolo vettore con lavori della citta
-            this.trovaLavoriInCitta(lavori,elemento,lavoriInCitta);
+            this.trovaLavoriInCitta(elemento,lavoriInCitta);
             //controllo tipologie
             for(Lavoro lavoro:lavoriInCitta){
                 switch (lavoro.getTipo()) {
@@ -119,7 +131,7 @@ public class Task2 {
         return true;
     }
 
-    public void trovaLavoriInCitta(Lavoro[] lavori, Citta elemento, ArrayList<Lavoro> lavoriInCitta){
+    public void trovaLavoriInCitta(Citta elemento, ArrayList<Lavoro> lavoriInCitta){
         for(Lavoro lavoro:lavori){
             if(elemento.getLavoriSuTerritorio().contains(lavoro.getID()))
                 lavoriInCitta.add(lavoro);
@@ -128,7 +140,7 @@ public class Task2 {
 
     ////////////////////////////////////////////////// PUNTO 4
 
-    public boolean controlla4(Impiegato[] impiegati,Lavoro[] lavori){
+    public boolean controlla4(){
         ArrayList<Impiegato> impiegatiLavoro = new ArrayList<>();
         int ingegnere = 0;
         int architetto = 0;
@@ -136,7 +148,7 @@ public class Task2 {
 
         for(Lavoro lavoro:lavori){
             //popolo vettore con impiegati del lavoro
-            this.trovaImpiegatiLavoro(impiegati,lavoro,impiegatiLavoro);
+            this.trovaImpiegatiLavoro(lavoro,impiegatiLavoro);
             //controllo tipologie
             for(Impiegato impiegato:impiegatiLavoro){
                 switch (impiegato.getTipo()) {
@@ -154,7 +166,7 @@ public class Task2 {
         return true;
     }
 
-    public void trovaImpiegatiLavoro(Impiegato[] impiegati, Lavoro lavoro, ArrayList<Impiegato> impiegatiLavoro){
+    public void trovaImpiegatiLavoro(Lavoro lavoro, ArrayList<Impiegato> impiegatiLavoro){
         for(Impiegato impiegato:impiegati){
             if(lavoro.getImpiegatiAssegnati().contains(impiegato.getID()))
                 impiegatiLavoro.add(impiegato);

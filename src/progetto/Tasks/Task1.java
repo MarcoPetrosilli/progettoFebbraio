@@ -6,22 +6,32 @@ import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 
-public class Task1 {
+public class Task1 implements taskStructure{
 
+    private final Impiegato[] impiegati;
+    private final Citta[] citta;
+    private final Lavoro[] lavori;
+
+    public Task1(Impiegato[] impiegati,Citta[] citta,Lavoro[] lavori){
+        this.impiegati=impiegati;
+        this.citta=citta;
+        this.lavori=lavori;
+    }
     ////////////////////////////////////////////////// ESEGUI TASK
 
-    public void eseguiTask(Citta[] citta, Impiegato[] impiegati, Lavoro[] lavori){
-        this.stampa1(impiegati);
-        this.stampa2(citta);
-        this.stampa3(impiegati,lavori);
-        this.stampa4(impiegati,lavori);
-        this.stampa5(impiegati,lavori,citta);
-        this.stampa6(impiegati,lavori,citta);
-        this.stampa7(impiegati,lavori,citta);
+    @Override
+    public void eseguiTask() {
+        this.stampa1();
+        this.stampa2();
+        this.stampa3();
+        this.stampa4();
+        this.stampa5();
+        this.stampa6();
+        this.stampa7();
     }
 
     ////////////////////////////////////////////////// PUNTO 1
-    public void stampa1(Impiegato[] impiegati){
+    public void stampa1(){
         int n=0;
         for(Impiegato impiegato:impiegati)
             if(!(impiegato.isAbilitato())) n++;
@@ -29,11 +39,11 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 2
-    public void stampa2(Citta[] citta){
-        System.out.println(this.trovaCittaMinLavori(citta).getNome());
+    public void stampa2(){
+        System.out.println(this.trovaCittaMinLavori().getNome());
     }
 
-    public Citta trovaCittaMinLavori(Citta[] citta){
+    public Citta trovaCittaMinLavori(){
         Citta cittaMinLavori=citta[0];
         for(Citta cittaX:citta) {
             if (cittaX.getLavoriSuTerritorio().size() == 0) return cittaX;
@@ -49,15 +59,15 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 3
-    public void stampa3(Impiegato[] impiegati, Lavoro[] lavori){
+    public void stampa3(){
         int[] counterImpiegati = new int[impiegati.length];
 
-        counterImpiegati=this.contaMolteplicitaImpiegati(impiegati,lavori,counterImpiegati);
+        counterImpiegati=this.contaMolteplicitaImpiegati(counterImpiegati);
 
-        System.out.println(impiegati[this.trovaIndexMaxMolteplicitaImpiegati(counterImpiegati,impiegati)].getID());
+        System.out.println(impiegati[this.trovaIndexMaxMolteplicitaImpiegati(counterImpiegati)].getID());
     }
 
-    public int[] contaMolteplicitaImpiegati(Impiegato[] impiegati, Lavoro[] lavori,int[] counterImpiegati){
+    public int[] contaMolteplicitaImpiegati(int[] counterImpiegati){
         int i=0;
         for(Impiegato impiegato:impiegati){
             for(Lavoro lavoro:lavori){
@@ -69,7 +79,7 @@ public class Task1 {
         return counterImpiegati;
     }
 
-    public int trovaIndexMaxMolteplicitaImpiegati(int[] counterImpiegati, Impiegato[] impiegati){
+    public int trovaIndexMaxMolteplicitaImpiegati(int[] counterImpiegati){
         int max=counterImpiegati[0];
         int index=0;
         for(int j=0;j<counterImpiegati.length;j++){
@@ -90,15 +100,15 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 4
-    public void stampa4(Impiegato[] impiegati, Lavoro[] lavori){
+    public void stampa4(){
         int[] counterImpiegati = new int[impiegati.length];
 
-        counterImpiegati=this.contaImportiImpiegati(impiegati,lavori,counterImpiegati);
+        counterImpiegati=this.contaImportiImpiegati(counterImpiegati);
 
-        System.out.println(impiegati[this.trovaIndexMaxImporto(counterImpiegati,impiegati)].getID());
+        System.out.println(impiegati[this.trovaIndexMaxImporto(counterImpiegati)].getID());
     }
 
-    public int[] contaImportiImpiegati(Impiegato[] impiegati,Lavoro[] lavori,int[] counterImpiegati){
+    public int[] contaImportiImpiegati(int[] counterImpiegati){
         int i=0;
         for(Impiegato impiegato:impiegati){
             for(Lavoro lavoro:lavori){
@@ -110,7 +120,7 @@ public class Task1 {
         return counterImpiegati;
     }
 
-    public int trovaIndexMaxImporto(int[] counterImpiegati,Impiegato[] impiegati){
+    public int trovaIndexMaxImporto(int[] counterImpiegati){
         int max=counterImpiegati[0];
         int index=0;
         for(int j=0;j<counterImpiegati.length;j++){
@@ -130,20 +140,20 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 5
-    public void stampa5(Impiegato[] impiegati, Lavoro[] lavori, Citta[] citta){
+    public void stampa5(){
         int[] counterCitta = new int[citta.length];
         int index;
         ArrayList<String> impiegatiCitta=new ArrayList<>();
 
-        this.contaImpiegati(citta,lavori,impiegati,impiegatiCitta,counterCitta);
-        index=this.trovaIndexMinImpiegati(counterCitta,citta);
+        this.contaImpiegati(impiegatiCitta,counterCitta);
+        index=this.trovaIndexMinImpiegati(counterCitta);
         if(counterCitta[index]==0)
             System.out.println(" ");
         else
-            System.out.println(citta[this.trovaIndexMinImpiegati(counterCitta,citta)].getGrandezza());
+            System.out.println(citta[this.trovaIndexMinImpiegati(counterCitta)].getGrandezza());
     }
 
-    public void contaImpiegati(Citta[] citta,Lavoro[] lavori,Impiegato[] impiegati, ArrayList<String> impiegatiCitta, int[] counterCitta){
+    public void contaImpiegati( ArrayList<String> impiegatiCitta, int[] counterCitta){
         int i=0;
         for(Citta element:citta){
             if(element.getLavoriSuTerritorio().size()!=0){
@@ -175,7 +185,7 @@ public class Task1 {
         return 0;
     }
 
-    public int trovaIndexMinImpiegati(int[] counterCitta,Citta[] citta){
+    public int trovaIndexMinImpiegati(int[] counterCitta){
         int min=counterCitta[0];
         int index=0;
         for(int j=0;j<counterCitta.length;j++){
@@ -198,18 +208,18 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 6
-    public void stampa6(Impiegato[] impiegati, Lavoro[] lavori, Citta[] citta){
+    public void stampa6(){
         Citta max=citta[0];
         ArrayList<String> impiegatiCitta = new ArrayList<>();
 
-        max = this.trovaCittaMaxLavori(citta,max);
+        max = this.trovaCittaMaxLavori(max);
 
-       this.popolaImpiegatiCitta(max,lavori,impiegatiCitta);
+       this.popolaImpiegatiCitta(max,impiegatiCitta);
 
-        System.out.println(this.contaImpiegatiOutput(impiegati,impiegatiCitta));
+        System.out.println(this.contaImpiegatiOutput(impiegatiCitta));
     }
 
-    public Citta trovaCittaMaxLavori(Citta[] citta,Citta max){
+    public Citta trovaCittaMaxLavori(Citta max){
         for(Citta element:citta){
             if(element.getLavoriSuTerritorio().size()>=max.getLavoriSuTerritorio().size()) {
                 if (element.getLavoriSuTerritorio().size() == max.getLavoriSuTerritorio().size()) {
@@ -222,7 +232,7 @@ public class Task1 {
         return max;
     }
 
-    public void popolaImpiegatiCitta(Citta max,Lavoro[] lavori,ArrayList<String> impiegatiCitta){
+    public void popolaImpiegatiCitta(Citta max,ArrayList<String> impiegatiCitta){
         for(String lavoroString:max.getLavoriSuTerritorio()){
             for(Lavoro lavoro:lavori)
                 if(lavoroString.equals(lavoro.getID())) impiegatiCitta.addAll(lavoro.getImpiegatiAssegnati());
@@ -230,7 +240,7 @@ public class Task1 {
         }
     }
 
-    public int contaImpiegatiOutput(Impiegato[] impiegati,ArrayList<String>impiegatiCitta){
+    public int contaImpiegatiOutput(ArrayList<String> impiegatiCitta){
         int counterCitta=0;
         for(Impiegato impiegato:impiegati)
             if(impiegatiCitta.contains(impiegato.getID())) counterCitta++;
@@ -238,14 +248,14 @@ public class Task1 {
     }
 
     ////////////////////////////////////////////////// PUNTO 7
-    public void stampa7(Impiegato[] impiegati, Lavoro[] lavori, Citta[] citta){
+    public void stampa7(){
         int[] counterImpiegati = new int[Citta.dimensioniPossibili.size()];
 
-        counterImpiegati=this.contaPerDimensione(citta,lavori,impiegati,counterImpiegati);
+        this.contaPerDimensione(counterImpiegati);
         System.out.println(counterImpiegati[0]+" "+counterImpiegati[1]+" "+counterImpiegati[2]);
     }
 
-    public int[] contaPerDimensione(Citta[] citta,Lavoro[] lavori,Impiegato[] impiegati,int[] counterImpiegati){
+    public void contaPerDimensione(int[] counterImpiegati){
         ArrayList<Citta> cittaGrandezzaCorrente = new ArrayList<>();
         ArrayList<String> impiegatiCitta = new ArrayList<>();
         int i=0;
@@ -268,6 +278,5 @@ public class Task1 {
             impiegatiCitta.clear();
             i++;
         }
-        return counterImpiegati;
     }
 }

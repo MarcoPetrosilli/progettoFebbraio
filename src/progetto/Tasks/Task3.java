@@ -4,15 +4,29 @@ import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 
-public class Task3 {
-    public void eseguiTask(ArrayList<Lavoro> serieLavori, int tempoDisponibile){
-        if(this.avviaSimulazione(serieLavori,tempoDisponibile))
+public class Task3 implements taskStructure{
+
+    private final ArrayList<Lavoro> serieLavori;
+    int tempoDisponibile;
+
+    public Task3(ArrayList<Lavoro> serieLavori,int tempoDisponibile){
+        this.serieLavori=serieLavori;
+        this.tempoDisponibile=tempoDisponibile;
+    }
+
+    ////////////////////////////////////////////////// ESEGUI TASK
+
+    @Override
+    public void eseguiTask() {
+        if(this.avviaSimulazione())
             System.out.println("VALID");
         else
             System.out.println("NOT VALID");
     }
 
-    public boolean avviaSimulazione(ArrayList<Lavoro> serieLavori, int tempoDisponibile){
+    ////////////////////////////////////////////////// METODI DI APPOGGIO
+
+    public boolean avviaSimulazione(){
         String ultimoTipo=null;
         double ultimaDurata=0;
         double giorniTrascorsi=0;
