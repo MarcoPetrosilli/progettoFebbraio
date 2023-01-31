@@ -1,7 +1,10 @@
-package progetto;
+package progetto.Tasks;
+
+import progetto.Classes.Citta;
+import progetto.Classes.Impiegato;
+import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Task1 {
 
@@ -32,15 +35,16 @@ public class Task1 {
 
     public Citta trovaCittaMinLavori(Citta[] citta){
         Citta cittaMinLavori=citta[0];
-        for(Citta cittaX:citta)
-            if(cittaX.getLavoriSuTerritorio().size()<=cittaMinLavori.getLavoriSuTerritorio().size()){
-                if(cittaX.getLavoriSuTerritorio().size()==cittaMinLavori.getLavoriSuTerritorio().size()){
-                    if(cittaX.getNome().compareToIgnoreCase(cittaMinLavori.getNome())<0)
-                        cittaMinLavori=cittaX;
-                }
-                else
-                    cittaMinLavori=cittaX;
+        for(Citta cittaX:citta) {
+            if (cittaX.getLavoriSuTerritorio().size() == 0) return cittaX;
+            if (cittaX.getLavoriSuTerritorio().size() <= cittaMinLavori.getLavoriSuTerritorio().size()) {
+                if (cittaX.getLavoriSuTerritorio().size() == cittaMinLavori.getLavoriSuTerritorio().size()) {
+                    if (cittaX.getNome().compareToIgnoreCase(cittaMinLavori.getNome()) < 0)
+                        cittaMinLavori = cittaX;
+                } else
+                    cittaMinLavori = cittaX;
             }
+        }
         return cittaMinLavori;
     }
 
@@ -128,24 +132,32 @@ public class Task1 {
     ////////////////////////////////////////////////// PUNTO 5
     public void stampa5(Impiegato[] impiegati, Lavoro[] lavori, Citta[] citta){
         int[] counterCitta = new int[citta.length];
+        int index;
         ArrayList<String> impiegatiCitta=new ArrayList<>();
 
         this.contaImpiegati(citta,lavori,impiegati,impiegatiCitta,counterCitta);
-
-        System.out.println(citta[this.trovaIndexMinImpiegati(counterCitta,citta)].getGrandezza());
+        index=this.trovaIndexMinImpiegati(counterCitta,citta);
+        if(counterCitta[index]==0)
+            System.out.println(" ");
+        else
+            System.out.println(citta[this.trovaIndexMinImpiegati(counterCitta,citta)].getGrandezza());
     }
 
     public void contaImpiegati(Citta[] citta,Lavoro[] lavori,Impiegato[] impiegati, ArrayList<String> impiegatiCitta, int[] counterCitta){
         int i=0;
         for(Citta element:citta){
-            for(String lavoroString:element.getLavoriSuTerritorio()){
-                for(Lavoro lavoro:lavori)
-                    if(lavoroString.equals(lavoro.getID())) impiegatiCitta.addAll(lavoro.getImpiegatiAssegnati());
+            if(element.getLavoriSuTerritorio().size()!=0){
+                for(String lavoroString:element.getLavoriSuTerritorio()){
+                    for(Lavoro lavoro:lavori)
+                        if(lavoroString.equals(lavoro.getID())) impiegatiCitta.addAll(lavoro.getImpiegatiAssegnati());
 
+                }
+                for(Impiegato impiegato:impiegati)
+                    if(impiegatiCitta.contains(impiegato.getID())) counterCitta[i]++;
+                impiegatiCitta.clear();
             }
-            for(Impiegato impiegato:impiegati)
-                if(impiegatiCitta.contains(impiegato.getID())) counterCitta[i]++;
-            impiegatiCitta.clear();
+            else
+                counterCitta[i]=0;
             i++;
         }
     }
@@ -167,16 +179,18 @@ public class Task1 {
         int min=counterCitta[0];
         int index=0;
         for(int j=0;j<counterCitta.length;j++){
-            if(counterCitta[j]<=min){
-                if(counterCitta[j]==min){
-                    if(this.equalsGrandezzaCitta(citta[j].getGrandezza(),citta[index].getGrandezza())<0) {
+            if(counterCitta[j]!=0){
+                if(counterCitta[j]<=min){
+                    if(counterCitta[j]==min){
+                        if(this.equalsGrandezzaCitta(citta[j].getGrandezza(),citta[index].getGrandezza())<0) {
+                            min=counterCitta[j];
+                            index=j;
+                        }
+                    }
+                    else{
                         min=counterCitta[j];
                         index=j;
                     }
-                }
-                else{
-                    min=counterCitta[j];
-                    index=j;
                 }
             }
         }
@@ -232,13 +246,13 @@ public class Task1 {
     }
 
     public int[] contaPerDimensione(Citta[] citta,Lavoro[] lavori,Impiegato[] impiegati,int[] counterImpiegati){
-        ArrayList<Citta> cittaGrandezzaCorrente = new ArrayList<Citta>();
-        ArrayList<String> impiegatiCitta = new ArrayList<String>();
+        ArrayList<Citta> cittaGrandezzaCorrente = new ArrayList<>();
+        ArrayList<String> impiegatiCitta = new ArrayList<>();
         int i=0;
 
         for(String dimensione:Citta.dimensioniPossibili){
             for(Citta element:citta){
-                if(element.getGrandezza().equals(dimensione))
+                if(element.getGrandezza().equals(dimensione) && element.getLavoriSuTerritorio().size()!=0)
                     cittaGrandezzaCorrente.add(element);
             }
             for(Citta elemento: cittaGrandezzaCorrente){

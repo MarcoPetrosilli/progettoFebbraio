@@ -1,4 +1,4 @@
-package progetto;
+package progetto.Classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,6 @@ public class Impiegato {
     private String cognome;
     private String tipo;
     private boolean abilitato;
-
     public static ArrayList<String> lavoriGeometra = new ArrayList<String>(Arrays.asList("ritocco","ristrutturazione"));
     public static ArrayList<String> lavoriArchitetto = new ArrayList<String>(Arrays.asList("ritocco","costruzione"));
     public static ArrayList<String> lavoriIngegneri = new ArrayList<String>(Arrays.asList("ristrutturazione","costruzione"));

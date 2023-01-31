@@ -1,9 +1,11 @@
-package progetto;
+package progetto.Tasks;
+
+import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 
 public class Task3 {
-    public void eseguiTask(ArrayList<Lavoro> serieLavori,int tempoDisponibile){
+    public void eseguiTask(ArrayList<Lavoro> serieLavori, int tempoDisponibile){
         if(this.avviaSimulazione(serieLavori,tempoDisponibile))
             System.out.println("VALID");
         else
@@ -49,8 +51,7 @@ public class Task3 {
     }
 
     public double max(double a, double b){
-        if(a>b) return a;
-        return b;
+        return Math.max(a, b);
     }
 
     public double calcolaTot(double ultimaDurata,double giorniTrascorsi){

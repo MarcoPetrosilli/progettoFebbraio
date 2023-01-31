@@ -1,4 +1,4 @@
-package progetto;
+package progetto.Utilities;
 
 public class IntBoxer {
     public IntBoxer(int startValue) {

@@ -1,4 +1,10 @@
-package progetto;
+package progetto.Classes;
+
+import progetto.Utilities.IntBoxer;
+import progetto.Utilities.LeggiFile;
+import progetto.Tasks.Task1;
+import progetto.Tasks.Task2;
+import progetto.Tasks.Task3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,16 +12,19 @@ import java.util.List;
 
 public class Progetto {
     public static void main(String[] args) {
-        //Dichiarazione variabili e oggetti necessari
+
+        ////////////////////////////////////////////////// DICHIARAZIONE VARIABILI E OGGETTI NECESSARI
         LeggiFile lettore = new LeggiFile();
         List<String> lines;
         int[] ImpiegatiCittaLavori;
         IntBoxer index = new IntBoxer(0);
 
-        //AQUISIZIONE DATI
+        ////////////////////////////////////////////////// AQUISIZIONE DATI
+
         lines=lettore.inizializzazioneLines();
 
-        //LETTURA
+        ////////////////////////////////////////////////// LETTURA DEI DATI AQUISITI
+
         ImpiegatiCittaLavori=lettore.leggiNumeri(lines,index);   //Leggi numeri
 
         Impiegato[] impiegati = new Impiegato[ImpiegatiCittaLavori[0]];   //Leggi Impiegati
@@ -27,8 +36,8 @@ public class Progetto {
         Lavoro[] lavori = new Lavoro[ImpiegatiCittaLavori[2]];   //Prodotti
         lettore.popolaLavori(ImpiegatiCittaLavori[2],lines,index,lavori,impiegati);
 
+        ////////////////////////////////////////////////// ESECUZIONE TASK
 
-        //ESECUZIONE TASK
         switch (lettore.leggiTask(lines, index)) {
             case "TASK1" -> {
                 Task1 t1 = new Task1();

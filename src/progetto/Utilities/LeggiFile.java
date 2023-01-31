@@ -1,10 +1,16 @@
-package progetto;
+package progetto.Utilities;
+
+import progetto.Classes.Citta;
+import progetto.Classes.Impiegato;
+import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class LeggiFile {
+
+    ////////////////////////////////////////////////// GESTIONE LINES / INDEX
     public List<String> inizializzazioneLines(){
         ArrayList<String> lines=new ArrayList<>();
         Scanner in = new Scanner(System.in);
@@ -24,6 +30,8 @@ public class LeggiFile {
         else return 0;
     }
 
+    ////////////////////////////////////////////////// LETTURA NUMERI QUANTITA ELEMENTI
+
     public int[] leggiNumeri(List<String> lines,IntBoxer index){
         String[] tokenizedLine=lines.get(index.value).split(" ");
         int[] n = new int[tokenizedLine.length];
@@ -32,7 +40,9 @@ public class LeggiFile {
         }
         return n;
     }
-    public void popolaImpiegati(int n, List<String> lines,IntBoxer index,Impiegato[] impiegati){
+
+    ////////////////////////////////////////////////// LETTURA IMPIEGATI
+    public void popolaImpiegati(int n, List<String> lines, IntBoxer index, Impiegato[] impiegati){
         for(int i=0;i<n;i++){
             index.value=this.incrementaIndex(lines,index);
             impiegati[i]=this.leggiImpiegato(lines,index);
@@ -48,7 +58,9 @@ public class LeggiFile {
         return new Impiegato(ID,nome,cognome,tipo);
     }
 
-    public void popolaCitta(int n, List<String> lines,IntBoxer index,Citta[] citta){
+    ////////////////////////////////////////////////// LETTURA CITTA'
+
+    public void popolaCitta(int n, List<String> lines, IntBoxer index, Citta[] citta){
         for(int i=0;i<n;i++){
             index.value=this.incrementaIndex(lines,index);
             citta[i]=this.leggiCitta(lines,index);
@@ -62,12 +74,16 @@ public class LeggiFile {
         String linesDaSplittare = tokenizedLine[2];
         String[] Array=linesDaSplittare.split(",");
         ArrayList<String> lavori = new ArrayList<String>();
-        for(String lavoro : Array)
-            lavori.add(lavoro);
+        if(!(Array[0].equals("-"))){
+            for(String lavoro : Array)
+                lavori.add(lavoro);
+        }
         return new Citta(ID,grandezza,lavori);
     }
 
-    public void popolaLavori(int n, List<String> lines,IntBoxer index,Lavoro[] lavori, Impiegato[] impiegati){
+    ////////////////////////////////////////////////// LETTURA LAVORI
+
+    public void popolaLavori(int n, List<String> lines, IntBoxer index, Lavoro[] lavori, Impiegato[] impiegati){
         for(int i=0;i<n;i++){
             index.value=this.incrementaIndex(lines,index);
             lavori[i]=this.leggiLavoro(lines,index);
@@ -89,6 +105,8 @@ public class LeggiFile {
         int importo = Integer.parseInt(tokenizedLine[4]);
         return new Lavoro(ID,tipo,durata,importo,impiegatiAssegnati);
     }
+
+    ////////////////////////////////////////////////// LETTURA TASK E PARAMETRI CARATTERIZZANTI TASK
 
     public String leggiTask(List<String> lines,IntBoxer index){
         index.value=this.incrementaIndex(lines,index);
@@ -118,6 +136,8 @@ public class LeggiFile {
         temp=new int[1];
         return temp;
     }
+
+    ////////////////////////////////////////////////// LETTURA SERIE LAVORI PER TASK3
 
     public ArrayList<Lavoro> leggiSerieLavori(List<String> lines,IntBoxer index, int n,Lavoro[] lavori){
         ArrayList<Lavoro> serielavori = new ArrayList<>();

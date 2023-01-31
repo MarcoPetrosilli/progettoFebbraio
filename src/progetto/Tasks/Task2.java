@@ -1,4 +1,8 @@
-package progetto;
+package progetto.Tasks;
+
+import progetto.Classes.Citta;
+import progetto.Classes.Impiegato;
+import progetto.Classes.Lavoro;
 
 import java.util.ArrayList;
 
@@ -6,7 +10,7 @@ public class Task2 {
 
     ////////////////////////////////////////////////// PUNTO 1
 
-    public void eseguiTask(int[] pqr,Lavoro[] lavori,Citta[] citta,Impiegato[] impiegati){
+    public void eseguiTask(int[] pqr, Lavoro[] lavori, Citta[] citta, Impiegato[] impiegati){
         if(this.controllo(pqr,lavori,citta,impiegati))
             System.out.println("YES");
         else
@@ -35,8 +39,8 @@ public class Task2 {
     public boolean controlla2(int[] pqr,Lavoro[] lavori,Impiegato[] impiegati,Citta[] citta){
         int counterCittaMaggiori=0;
         int counterCittaMinori=0;
-        ArrayList<Integer> totCostoInPiuCitta = new ArrayList<Integer>();
-        ArrayList<Lavoro> lavoriImpiegato= new ArrayList<Lavoro>();
+        ArrayList<Integer> totCostoInPiuCitta = new ArrayList<>();
+        ArrayList<Lavoro> lavoriImpiegato= new ArrayList<>();
 
         for(Impiegato impiegato:impiegati){
             //Calcola costo totale in tutte le citta che coinvolgono impiegato
@@ -93,23 +97,17 @@ public class Task2 {
         int ristrutturazione = 0;
         int ritocco = 0;
         int costruzione = 0;
-        ArrayList<Lavoro> lavoriInCitta = new ArrayList<Lavoro>();
+        ArrayList<Lavoro> lavoriInCitta = new ArrayList<>();
 
         for(Citta elemento:citta){
             //popolo vettore con lavori della citta
             this.trovaLavoriInCitta(lavori,elemento,lavoriInCitta);
             //controllo tipologie
             for(Lavoro lavoro:lavoriInCitta){
-                switch(lavoro.getTipo()){
-                    case "ristrutturazione":
-                        ristrutturazione++;
-                        break;
-                    case "ritocco":
-                        ritocco++;
-                        break;
-                    case "costruzione":
-                        costruzione++;
-                        break;
+                switch (lavoro.getTipo()) {
+                    case "ristrutturazione" -> ristrutturazione++;
+                    case "ritocco" -> ritocco++;
+                    case "costruzione" -> costruzione++;
                 }
                 if(ristrutturazione>1 || ritocco>1 || costruzione>1) return false;
             }
@@ -131,7 +129,7 @@ public class Task2 {
     ////////////////////////////////////////////////// PUNTO 4
 
     public boolean controlla4(Impiegato[] impiegati,Lavoro[] lavori){
-        ArrayList<Impiegato> impiegatiLavoro = new ArrayList<Impiegato>();
+        ArrayList<Impiegato> impiegatiLavoro = new ArrayList<>();
         int ingegnere = 0;
         int architetto = 0;
         int geometra = 0;
@@ -141,16 +139,10 @@ public class Task2 {
             this.trovaImpiegatiLavoro(impiegati,lavoro,impiegatiLavoro);
             //controllo tipologie
             for(Impiegato impiegato:impiegatiLavoro){
-                switch(impiegato.getTipo()){
-                    case "ingegnere":
-                        ingegnere++;
-                        break;
-                    case "architetto":
-                        architetto++;
-                        break;
-                    case "geometra":
-                        geometra++;
-                        break;
+                switch (impiegato.getTipo()) {
+                    case "ingegnere" -> ingegnere++;
+                    case "architetto" -> architetto++;
+                    case "geometra" -> geometra++;
                 }
                 if(ingegnere>1 || architetto>1 || geometra>1) return false;
             }
