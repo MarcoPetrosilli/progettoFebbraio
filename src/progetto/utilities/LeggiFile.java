@@ -6,6 +6,7 @@ import progetto.classes.Lavoro;
 import progetto.enums.TipoCitta;
 import progetto.enums.TipoImpiegato;
 import progetto.enums.TipoLavoro;
+import progetto.enums.TipoTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,24 +112,24 @@ public class LeggiFile {
 
     ////////////////////////////////////////////////// LETTURA TASK E PARAMETRI CARATTERIZZANTI TASK
 
-    public String leggiTask(List<String> lines,IntBoxer index){
+    public TipoTask leggiTask(List<String> lines,IntBoxer index){
         index.value=this.incrementaIndex(lines,index);
         String[] tokenizedLine=lines.get(index.value).split(" ");
-        return tokenizedLine[0];
+        return TipoTask.valueOf(tokenizedLine[0]);
     }
 
-    public int[] leggiNumeriTask(String task,List<String> lines,IntBoxer index){
+    public int[] leggiNumeriTask(TipoTask task, List<String> lines, IntBoxer index){
         String[] tokenizedLine;
         int[] temp;
         switch(task){
-            case "TASK2":
+            case TASK2:
                 temp = new int[3];
                 tokenizedLine = lines.get(index.value).split(" ");
                 for(int i=0;i<temp.length;i++){
                     temp[i]=Integer.parseInt(tokenizedLine[i+1]);
                 }
                 return temp;
-            case "TASK3":
+            case TASK3:
                 temp = new int[2];
                 tokenizedLine = lines.get(index.value).split(" ");
                 for(int i=0;i<temp.length;i++){

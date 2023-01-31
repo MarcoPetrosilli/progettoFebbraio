@@ -38,18 +38,19 @@ public class Progetto {
 
         ////////////////////////////////////////////////// ESECUZIONE TASK
 
-        switch (lettore.leggiTask(lines, index)) {
-            case "TASK1" -> {
+        var task=lettore.leggiTask(lines, index);
+        switch (task) {
+            case TASK1 -> {
                 Task1 t1 = new Task1(impiegati, citta, lavori);
                 t1.eseguiTask();
             }
-            case "TASK2" -> {
-                int[] pqr = lettore.leggiNumeriTask("TASK2", lines, index);
+            case TASK2 -> {
+                int[] pqr = lettore.leggiNumeriTask(task, lines, index);
                 Task2 t2 = new Task2(pqr,impiegati, citta, lavori);
                 t2.eseguiTask();
             }
-            case "TASK3" -> {
-                int[] nm = lettore.leggiNumeriTask("TASK3", lines, index);
+            case TASK3 -> {
+                int[] nm = lettore.leggiNumeriTask(task, lines, index);
                 ArrayList<Lavoro> serielavori = lettore.leggiSerieLavori(lines, index, nm[1], lavori);
                 Task3 t3 = new Task3(serielavori,nm[0]);
                 t3.eseguiTask();
