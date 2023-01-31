@@ -1,5 +1,7 @@
 package progetto.classes;
 
+import progetto.enums.TipoImpiegato;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,13 +9,13 @@ public class Impiegato {
     private String ID;
     private String nome;
     private String cognome;
-    private String tipo;
+    private TipoImpiegato tipo;
     private boolean abilitato;
     public static ArrayList<String> lavoriGeometra = new ArrayList<String>(Arrays.asList("ritocco","ristrutturazione"));
     public static ArrayList<String> lavoriArchitetto = new ArrayList<String>(Arrays.asList("ritocco","costruzione"));
     public static ArrayList<String> lavoriIngegneri = new ArrayList<String>(Arrays.asList("ristrutturazione","costruzione"));
 
-    public Impiegato(String ID, String nome, String cognome, String tipo){
+    public Impiegato(String ID, String nome, String cognome, TipoImpiegato tipo){
         this.ID=ID;
         this.nome=nome;
         this.cognome=cognome;
@@ -33,7 +35,7 @@ public class Impiegato {
         return cognome;
     }
 
-    public String getTipo() {
+    public TipoImpiegato getTipo() {
         return tipo;
     }
 
@@ -45,15 +47,15 @@ public class Impiegato {
         for(Lavoro lavoro:lavori){
             if(lavoro.getImpiegatiAssegnati().contains(this.ID)){
                 switch (this.tipo){
-                    case "geometra":
+                    case geometra:
                         if(!(lavoriGeometra.contains(lavoro.getTipo())))
                             this.abilitato=false;
                         break;
-                    case "architetto":
+                    case architetto:
                         if(!(lavoriArchitetto.contains(lavoro.getTipo())))
                             this.abilitato=false;
                         break;
-                    case "ingegnere":
+                    case ingegnere:
                         if(!(lavoriIngegneri.contains(lavoro.getTipo())))
                             this.abilitato=false;
                         break;

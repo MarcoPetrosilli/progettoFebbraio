@@ -14,16 +14,6 @@ public class Task2 implements ITaskStructure {
     private final Citta[] citta;
     private final Lavoro[] lavori;
 
-    // COSTANTI TIPOLOGIA_IMPIEGATI
-    public static final String TIPO_INGEGNERE = "ingegnere";
-    public static final String TIPO_GEOMETRA = "geometra";
-    public static final String TIPO_ARCHITETTO = "architetto";
-
-    // COSTANTI TIPOLOGIA_IMPIEGATI
-    public static final String TIPO_RITOCCO = "ritocco";
-    public static final String TIPO_RISTRUTTURAZIONE = "ristrutturazione";
-    public static final String TIPO_COSTRUZIONE = "costruzione";
-
     public Task2(int[] pqr,Impiegato[] impiegati,Citta[] citta,Lavoro[] lavori){
         this.pqr=pqr;
         this.impiegati=impiegati;
@@ -128,9 +118,9 @@ public class Task2 implements ITaskStructure {
             //controllo tipologie
             for(Lavoro lavoro:lavoriInCitta){
                 switch (lavoro.getTipo()) {
-                    case TIPO_RISTRUTTURAZIONE -> ristrutturazione++;
-                    case TIPO_RITOCCO -> ritocco++;
-                    case TIPO_COSTRUZIONE -> costruzione++;
+                    case ristrutturazione -> ristrutturazione++;
+                    case ritocco -> ritocco++;
+                    case costruzione -> costruzione++;
                 }
                 if(ristrutturazione>1 || ritocco>1 || costruzione>1) return false;
             }
@@ -163,9 +153,9 @@ public class Task2 implements ITaskStructure {
             //controllo tipologie
             for(Impiegato impiegato:impiegatiLavoro){
                 switch (impiegato.getTipo()) {
-                    case TIPO_INGEGNERE -> ingegnere++;
-                    case TIPO_ARCHITETTO -> architetto++;
-                    case TIPO_GEOMETRA -> geometra++;
+                    case ingegnere -> ingegnere++;
+                    case architetto -> architetto++;
+                    case geometra -> geometra++;
                 }
                 if(ingegnere>1 || architetto>1 || geometra>1) return false;
             }

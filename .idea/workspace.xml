@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Progetto.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Citta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Impiegato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/IntBoxer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Lavoro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/LeggiFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Progetto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Task1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/Task2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/es_input_A_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/es_input_A_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/progetto/es_input_A_3.txt" afterDir="false" />
+    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="inserimento enum tipoCitta">
+      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Lavoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/classes/Lavoro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/utilities/LeggiFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/utilities/LeggiFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +72,14 @@
       <option name="presentableId" value="Default" />
       <updated>1674999120168</updated>
     </task>
+    <task id="LOCAL-00001" summary="inserimento enum tipoCitta">
+      <created>1675190273066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675190273066</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,5 +92,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="inserimento enum tipoCitta" />
+    <option name="LAST_COMMIT_MESSAGE" value="inserimento enum tipoCitta" />
   </component>
 </project>

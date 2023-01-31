@@ -4,6 +4,8 @@ import progetto.classes.Citta;
 import progetto.classes.Impiegato;
 import progetto.classes.Lavoro;
 import progetto.enums.TipoCitta;
+import progetto.enums.TipoImpiegato;
+import progetto.enums.TipoLavoro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,7 @@ public class LeggiFile {
     public Impiegato leggiImpiegato(List<String> lines,IntBoxer index){
         String[] tokenizedLine=lines.get(index.value).split(" ");
         String ID = tokenizedLine[0];
-        String tipo = tokenizedLine[1];
+        TipoImpiegato tipo = TipoImpiegato.valueOf(tokenizedLine[1]);
         String nome = tokenizedLine[2];
         String cognome = tokenizedLine[3];
         return new Impiegato(ID,nome,cognome,tipo);
@@ -101,7 +103,7 @@ public class LeggiFile {
         ArrayList<String> impiegatiAssegnati = new ArrayList<>();
         for(String impiegato : Array)
             impiegatiAssegnati.add(impiegato);
-        String tipo = tokenizedLine[2];
+        TipoLavoro tipo = TipoLavoro.valueOf(tokenizedLine[2]);
         int durata = Integer.parseInt(tokenizedLine[3]);
         int importo = Integer.parseInt(tokenizedLine[4]);
         return new Lavoro(ID,tipo,durata,importo,impiegatiAssegnati);
