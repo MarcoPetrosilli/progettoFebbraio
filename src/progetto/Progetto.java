@@ -8,9 +8,6 @@ public class Progetto {
     public static void main(String[] args) {
         //Dichiarazione variabili e oggetti necessari
         LeggiFile lettore = new LeggiFile();
-        //Task1 esecutore1=new Task1();
-        //Task2 esecutore2=new Task2();
-        //Task3 esecutore3=new Task3();
         List<String> lines;
         int[] ImpiegatiCittaLavori;
         IntBoxer index = new IntBoxer(0);
@@ -32,20 +29,22 @@ public class Progetto {
 
 
         //ESECUZIONE TASK
-        switch(lettore.leggiTask(lines,index)){
-            case "TASK1":
-                Task1 t1=new Task1();
-                t1.eseguiTask(citta,impiegati,lavori);
-                break;
-            case "TASK2":
-                Task2 t2=new Task2();
-                int[] pqr = lettore.leggiNumeriTask("TASK2",lines,index);
-                t2.eseguiTask(pqr,lavori,citta,impiegati);
-                break;
-            case "TASK3":
-                int[] nm = lettore.leggiNumeriTask("TASK3",lines,index);
-                ArrayList<Lavoro> serielavori=lettore.leggiSerieLavori(lines,index,nm[1],lavori);
-                break;
+        switch (lettore.leggiTask(lines, index)) {
+            case "TASK1" -> {
+                Task1 t1 = new Task1();
+                t1.eseguiTask(citta, impiegati, lavori);
+            }
+            case "TASK2" -> {
+                Task2 t2 = new Task2();
+                int[] pqr = lettore.leggiNumeriTask("TASK2", lines, index);
+                t2.eseguiTask(pqr, lavori, citta, impiegati);
+            }
+            case "TASK3" -> {
+                Task3 t3 = new Task3();
+                int[] nm = lettore.leggiNumeriTask("TASK3", lines, index);
+                ArrayList<Lavoro> serielavori = lettore.leggiSerieLavori(lines, index, nm[1], lavori);
+                t3.eseguiTask(serielavori, nm[0]);
+            }
         }
     }
 }
