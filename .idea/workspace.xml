@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="inserimento enum tipoCitta">
-      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Lavoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/classes/Lavoro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/progetto/utilities/LeggiFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/utilities/LeggiFile.java" afterDir="false" />
+    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="enum TipoTask">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -46,7 +45,7 @@
       <recent name="$PROJECT_DIR$/src/progetto" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.progetto.classes.Progetto">
     <configuration name="Progetto" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="progetto.Progetto" />
       <module name="Progetto" />
@@ -55,6 +54,21 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="progetto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="progetto.classes.Progetto" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="progetto.classes.Progetto" />
+      <module name="Progetto" />
+      <option name="REDIRECT_INPUT" value="true" />
+      <option name="INPUT_FILE" value="$PROJECT_DIR$/src/progetto/es_input_A_3.txt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="progetto.classes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,7 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675190273066</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="inserimento enum tipoLavoro e tipoImpiegato">
+      <created>1675190678278</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675190678278</updated>
+    </task>
+    <task id="LOCAL-00003" summary="enum TipoTask">
+      <created>1675190994596</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675190994596</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +123,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inserimento enum tipoCitta" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserimento enum tipoCitta" />
+    <MESSAGE value="inserimento enum tipoLavoro e tipoImpiegato" />
+    <MESSAGE value="enum TipoTask" />
+    <option name="LAST_COMMIT_MESSAGE" value="enum TipoTask" />
   </component>
 </project>

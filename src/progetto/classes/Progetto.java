@@ -1,5 +1,6 @@
 package progetto.classes;
 
+import progetto.interfaces.ITaskStructure;
 import progetto.utilities.IntBoxer;
 import progetto.utilities.LeggiFile;
 import progetto.tasks.Task1;
@@ -18,6 +19,7 @@ public class Progetto {
         List<String> lines;
         int[] ImpiegatiCittaLavori;
         IntBoxer index = new IntBoxer(0);
+        ITaskStructure taskExecutor = null;
 
         ////////////////////////////////////////////////// AQUISIZIONE DATI
 
@@ -40,21 +42,17 @@ public class Progetto {
 
         var task=lettore.leggiTask(lines, index);
         switch (task) {
-            case TASK1 -> {
-                Task1 t1 = new Task1(impiegati, citta, lavori);
-                t1.eseguiTask();
-            }
+            case TASK1 -> taskExecutor = new Task1(impiegati, citta, lavori);
             case TASK2 -> {
                 int[] pqr = lettore.leggiNumeriTask(task, lines, index);
-                Task2 t2 = new Task2(pqr,impiegati, citta, lavori);
-                t2.eseguiTask();
+                taskExecutor = new Task2(pqr,impiegati, citta, lavori);
             }
             case TASK3 -> {
                 int[] nm = lettore.leggiNumeriTask(task, lines, index);
                 ArrayList<Lavoro> serielavori = lettore.leggiSerieLavori(lines, index, nm[1], lavori);
-                Task3 t3 = new Task3(serielavori,nm[0]);
-                t3.eseguiTask();
+                taskExecutor = new Task3(serielavori,nm[0]);
             }
         }
+        taskExecutor.eseguiTask();
     }
 }

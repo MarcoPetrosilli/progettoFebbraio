@@ -1,6 +1,7 @@
 package progetto.tasks;
 
 import progetto.classes.Lavoro;
+import progetto.enums.TipoLavoro;
 import progetto.interfaces.ITaskStructure;
 
 import java.util.ArrayList;
@@ -28,11 +29,11 @@ public class Task3 implements ITaskStructure {
     ////////////////////////////////////////////////// METODI DI APPOGGIO
 
     public boolean avviaSimulazione(){
-        String ultimoTipo=null;
+        TipoLavoro ultimoTipo=null;
         double ultimaDurata=0;
         double giorniTrascorsi=0;
         double giorniDaTrascorrere=0;
-        double temp;
+        int temp;
         double tempoTot=0;
 
 
@@ -73,13 +74,16 @@ public class Task3 implements ITaskStructure {
         return ultimaDurata+giorniTrascorsi;
     }
 
-    public double calcolaTemp(String ultimoTipo,double ultimaDurata){
+    public int calcolaTemp(TipoLavoro ultimoTipo,double ultimaDurata){
         double coeffPercentuale=0;
-        if(ultimoTipo.equals("costruzione"))
+        if(ultimoTipo.equals(TipoLavoro.costruzione))
             coeffPercentuale=0.2;
 
-        else if (ultimoTipo.equals("ristrutturazione"))
+        else if (ultimoTipo.equals(TipoLavoro.ristrutturazione))
             coeffPercentuale=0.3;
-        return coeffPercentuale*ultimaDurata;
+        var contoNonArr=coeffPercentuale*ultimaDurata;
+        if((int)contoNonArr<contoNonArr)
+            return ((int)contoNonArr)+1;
+        return (int)contoNonArr;
     }
 }
