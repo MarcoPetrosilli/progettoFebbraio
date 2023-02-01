@@ -3,13 +3,16 @@ package progetto.classes;
 import progetto.enums.TipoCitta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Citta {
-    private String nome;
-    private TipoCitta grandezza;
-    private ArrayList<String> lavoriSuTerritorio;
 
+    //region ATTRIBUTI
+    private final String nome;
+    private final TipoCitta grandezza;
+    private final ArrayList<String> lavoriSuTerritorio;
+    //endregion
+
+    //region METODI
     public Citta(String nome, TipoCitta grandezza, ArrayList<String> lavoriSuTerritorio){
         this.nome=nome;
         this.grandezza=grandezza;
@@ -27,4 +30,6 @@ public class Citta {
     public ArrayList<String> getLavoriSuTerritorio() {
         return lavoriSuTerritorio;
     }
+    //endregion
+
 }

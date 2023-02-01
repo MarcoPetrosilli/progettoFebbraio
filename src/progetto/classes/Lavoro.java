@@ -5,13 +5,16 @@ import progetto.enums.TipoLavoro;
 import java.util.ArrayList;
 
 public class Lavoro {
-    private String ID;
-    private TipoLavoro tipo;
-    private int durata;
-    private int importo;
 
-    private ArrayList<String> impiegatiAssegnati;
+    //region ATTRIBUTI
+    private final String ID;
+    private final TipoLavoro tipo;
+    private final int durata;
+    private final int importo;
+    private final ArrayList<String> impiegatiAssegnati;
+    //endregion
 
+    //region METODI
     public Lavoro(String ID, TipoLavoro tipo, int durata, int importo,ArrayList<String> impiegatiAssegnati){
         this.ID=ID;
         this.tipo=tipo;
@@ -39,4 +42,6 @@ public class Lavoro {
     public ArrayList<String> getImpiegatiAssegnati() {
         return impiegatiAssegnati;
     }
+    //endregion
+
 }

@@ -10,17 +10,20 @@ import java.util.ArrayList;
 
 public class Task1 implements ITaskStructure {
 
+    //region ATTRIBUTI E COSTRUTTORE
     private final Impiegato[] impiegati;
     private final Citta[] citta;
     private final Lavoro[] lavori;
+
 
     public Task1(Impiegato[] impiegati,Citta[] citta,Lavoro[] lavori){
         this.impiegati=impiegati;
         this.citta=citta;
         this.lavori=lavori;
     }
-    ////////////////////////////////////////////////// ESEGUI TASK
+    //endregion
 
+    //region ESEGUI TASK
     @Override
     public void eseguiTask() {
         this.stampa1();
@@ -31,16 +34,18 @@ public class Task1 implements ITaskStructure {
         this.stampa6();
         this.stampa7();
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 1
+    //region PUNTO 1
     public void stampa1(){
         int n=0;
         for(Impiegato impiegato:impiegati)
             if(!(impiegato.isAbilitato())) n++;
         System.out.println(n);
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 2
+    //region PUNTO 2
     public void stampa2(){
         System.out.println(this.trovaCittaMinLavori().getNome());
     }
@@ -59,8 +64,9 @@ public class Task1 implements ITaskStructure {
         }
         return cittaMinLavori;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 3
+    //region PUNTO 3
     public void stampa3(){
         int[] counterImpiegati = new int[impiegati.length];
 
@@ -100,8 +106,9 @@ public class Task1 implements ITaskStructure {
         }
         return index;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 4
+    //region PUNTO 4
     public void stampa4(){
         int[] counterImpiegati = new int[impiegati.length];
 
@@ -140,8 +147,9 @@ public class Task1 implements ITaskStructure {
         }
         return index;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 5
+    //region PUNTO 5
     public void stampa5(){
         int[] counterCitta = new int[citta.length];
         int index;
@@ -207,8 +215,9 @@ public class Task1 implements ITaskStructure {
         }
         return index;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 6
+    //region PUNTO 6
     public void stampa6(){
         Citta max=citta[0];
         ArrayList<String> impiegatiCitta = new ArrayList<>();
@@ -247,8 +256,9 @@ public class Task1 implements ITaskStructure {
             if(impiegatiCitta.contains(impiegato.getID())) counterCitta++;
         return counterCitta;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 7
+    //region PUNTO 7
     public void stampa7(){
         int[] counterImpiegati = new int[TipoCitta.values().length];
 
@@ -284,4 +294,6 @@ public class Task1 implements ITaskStructure {
             i++;
         }
     }
+    //endregion
+
 }

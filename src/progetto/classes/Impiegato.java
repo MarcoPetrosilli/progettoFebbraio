@@ -1,20 +1,28 @@
 package progetto.classes;
 
 import progetto.enums.TipoImpiegato;
+import progetto.enums.TipoLavoro;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Impiegato {
-    private String ID;
-    private String nome;
-    private String cognome;
-    private TipoImpiegato tipo;
-    private boolean abilitato;
-    public static ArrayList<String> lavoriGeometra = new ArrayList<String>(Arrays.asList("ritocco","ristrutturazione"));
-    public static ArrayList<String> lavoriArchitetto = new ArrayList<String>(Arrays.asList("ritocco","costruzione"));
-    public static ArrayList<String> lavoriIngegneri = new ArrayList<String>(Arrays.asList("ristrutturazione","costruzione"));
 
+    //region ATTRIBUTI
+    private final String ID;
+    private final String nome;
+    private final String cognome;
+    private final TipoImpiegato tipo;
+    private boolean abilitato;
+    //endregion
+
+    //region ATTRIBUTI STATIC
+    public static ArrayList<TipoLavoro> lavoriGeometra = new ArrayList<>(Arrays.asList(TipoLavoro.ritocco, TipoLavoro.ristrutturazione));
+    public static ArrayList<TipoLavoro> lavoriArchitetto = new ArrayList<>(Arrays.asList(TipoLavoro.ritocco, TipoLavoro.costruzione));
+    public static ArrayList<TipoLavoro> lavoriIngegneri = new ArrayList<>(Arrays.asList(TipoLavoro.ristrutturazione, TipoLavoro.costruzione));
+    //endregion
+
+    //region METODI
     public Impiegato(String ID, String nome, String cognome, TipoImpiegato tipo){
         this.ID=ID;
         this.nome=nome;
@@ -63,4 +71,5 @@ public class Impiegato {
             }
         }
     }
+    //endregion
 }

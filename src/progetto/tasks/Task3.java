@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Task3 implements ITaskStructure {
 
+    //region ATTRIBUTI E COSTRUTTORE
     private final ArrayList<Lavoro> serieLavori;
     int tempoDisponibile;
 
@@ -15,9 +16,9 @@ public class Task3 implements ITaskStructure {
         this.serieLavori=serieLavori;
         this.tempoDisponibile=tempoDisponibile;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// ESEGUI TASK
-
+    //region ESEGUI TASK
     @Override
     public void eseguiTask() {
         if(this.avviaSimulazione())
@@ -25,9 +26,9 @@ public class Task3 implements ITaskStructure {
         else
             System.out.println("NOT VALID");
     }
+    //endregion
 
-    ////////////////////////////////////////////////// METODI DI APPOGGIO
-
+    //region METODI DI APPOGGIO
     public boolean avviaSimulazione(){
         TipoLavoro ultimoTipo=null;
         double ultimaDurata=0;
@@ -86,4 +87,6 @@ public class Task3 implements ITaskStructure {
             return ((int)contoNonArr)+1;
         return (int)contoNonArr;
     }
+    //endregion
+
 }

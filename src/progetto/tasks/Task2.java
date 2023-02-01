@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Task2 implements ITaskStructure {
 
+    //region ATTRIBUTI E COSTRUTTORE
     private final int[] pqr;
     private final Impiegato[] impiegati;
     private final Citta[] citta;
@@ -20,8 +21,9 @@ public class Task2 implements ITaskStructure {
         this.citta=citta;
         this.lavori=lavori;
     }
-    ////////////////////////////////////////////////// ESEGUI TASK
+    //endregion
 
+    //region ESEGUI TASK
     @Override
     public void eseguiTask() {
         if(this.controllo())
@@ -33,9 +35,9 @@ public class Task2 implements ITaskStructure {
     public boolean controllo(){
         return (this.controlla1() && this.controlla2() && this.controlla3() && this.controlla4());
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 1
-
+    //region CONTROLLA 1
     public boolean controlla1(){
         int counter=0;
         for(Lavoro lavoro:lavori){
@@ -46,9 +48,9 @@ public class Task2 implements ITaskStructure {
         }
         return true;
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 2
-
+    //region CONTROLLA 2
     public boolean controlla2(){
         int counterCittaMaggiori=0;
         int counterCittaMinori=0;
@@ -103,9 +105,9 @@ public class Task2 implements ITaskStructure {
             lavoriImpiegato.clear();
         }
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 3
-
+    //region CONTROLLA 3
     public boolean controlla3(){
         int ristrutturazione = 0;
         int ritocco = 0;
@@ -138,9 +140,9 @@ public class Task2 implements ITaskStructure {
                 lavoriInCitta.add(lavoro);
         }
     }
+    //endregion
 
-    ////////////////////////////////////////////////// PUNTO 4
-
+    //region CONTROLLA 4
     public boolean controlla4(){
         ArrayList<Impiegato> impiegatiLavoro = new ArrayList<>();
         int ingegnere = 0;
@@ -173,4 +175,6 @@ public class Task2 implements ITaskStructure {
                 impiegatiLavoro.add(impiegato);
         }
     }
+    //endregion
+
 }

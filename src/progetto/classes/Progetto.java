@@ -14,32 +14,32 @@ import java.util.List;
 public class Progetto {
     public static void main(String[] args) {
 
-        ////////////////////////////////////////////////// DICHIARAZIONE VARIABILI E OGGETTI NECESSARI
+        //region DICHIARAZIONI
         LeggiFile lettore = new LeggiFile();
         List<String> lines;
         int[] ImpiegatiCittaLavori;
         IntBoxer index = new IntBoxer(0);
         ITaskStructure taskExecutor = null;
+        //endregion
 
-        ////////////////////////////////////////////////// AQUISIZIONE DATI
-
+        //region AQUISIZIONE DATI
         lines=lettore.inizializzazioneLines();
+        //endregion
 
-        ////////////////////////////////////////////////// LETTURA DEI DATI AQUISITI
+        //region LETTURA DEI DATI AQUISITI
+        ImpiegatiCittaLavori=lettore.leggiNumeri(lines,index);
 
-        ImpiegatiCittaLavori=lettore.leggiNumeri(lines,index);                  //Leggi numeri
-
-        Impiegato[] impiegati = new Impiegato[ImpiegatiCittaLavori[0]];         //Leggi Impiegati
+        Impiegato[] impiegati = new Impiegato[ImpiegatiCittaLavori[0]];
         lettore.popolaImpiegati(ImpiegatiCittaLavori[0],lines,index,impiegati);
 
-        Citta[] citta = new Citta[ImpiegatiCittaLavori[1]];                     //Leggi Citta
+        Citta[] citta = new Citta[ImpiegatiCittaLavori[1]];
         lettore.popolaCitta(ImpiegatiCittaLavori[1],lines,index,citta);
 
-        Lavoro[] lavori = new Lavoro[ImpiegatiCittaLavori[2]];                  //Prodotti
+        Lavoro[] lavori = new Lavoro[ImpiegatiCittaLavori[2]];
         lettore.popolaLavori(ImpiegatiCittaLavori[2],lines,index,lavori,impiegati);
+        //endregion
 
-        ////////////////////////////////////////////////// ESECUZIONE TASK
-
+        //region ESECUZIONE TASK
         var task=lettore.leggiTask(lines, index);
         switch (task) {
             case TASK1 -> taskExecutor = new Task1(impiegati, citta, lavori);
@@ -54,5 +54,7 @@ public class Progetto {
             }
         }
         taskExecutor.eseguiTask();
+        //endregion
+
     }
 }
