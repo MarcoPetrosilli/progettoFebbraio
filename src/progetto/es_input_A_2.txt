@@ -1,33 +1,19 @@
-13 9 9
+6 5 6
 i1 geometra gianni bianchi
 i2 ingegnere paolo neri
 i3 architetto giulia rossi
 i4 architetto carlo viola
-i5 architetto carlo viola
-i6 geometra carlo viola
-i7 geometra carlo viola
-i8 ingegnere carlo viola
-i9 architetto carlo viola
-i10 geometra carlo viola
-i11 architetto carlo viola
-i12 architetto carlo viola
-i13 ingegnere carlo viola
+i5 ingegnere luca verdi
+i6 geometra maria grigio
 c1 grande l1,l2
 c2 piccola l3
-c3 media l4,l5
+c3 media l4,l5,l6
 c4 grande -
-c5 media l4,l5,l2
-c6 piccola l3,l4,l5
-c7 media -
-c8 grande -
-c9 media l4,l5
-l1 i3,i4 costruzione 20 40
-l2 i1 ristrutturazione 14 2
-l3 i1,i2 ristrutturazione 20 160
-l4 i4 ritocco 21 3
-l5 i1,i11 costruzione 20 90
-l6 i8,i7 costruzione 150 90
-l7 i3,i4 ristrutturazione 150 90
-l8 i12,i13 costruzione 20 90
-l9 i9,i10 ritocco 150 90
+c5 media l6
+l1 i3,i4 ristrutturazione 160 40
+l2 i1 ritocco 12 2
+l3 i1,i2 costruzione 260 160
+l4 i4 ritocco 20 3
+l5 i3,i4 costruzione 145 90
+l6 i5,i6 ristrutturazione 310 200
 TASK2 30 3 60

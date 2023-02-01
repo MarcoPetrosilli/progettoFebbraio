@@ -58,7 +58,8 @@ public class Task1 implements ITaskStructure {
                 if (cittaX.getLavoriSuTerritorio().size() == cittaMinLavori.getLavoriSuTerritorio().size()) {
                     if (cittaX.getNome().compareToIgnoreCase(cittaMinLavori.getNome()) < 0)
                         cittaMinLavori = cittaX;
-                } else
+                }
+                else
                     cittaMinLavori = cittaX;
             }
         }
@@ -134,14 +135,15 @@ public class Task1 implements ITaskStructure {
         int index=0;
         for(int j=0;j<counterImpiegati.length;j++){
             if(counterImpiegati[j]>=max){
-                if(counterImpiegati[j]==max)
+                if(counterImpiegati[j]==max){
                     if(impiegati[j].getID().compareToIgnoreCase(impiegati[index].getID())<0){
                         max=counterImpiegati[j];
                         index=j;
                     }
-                    else{
-                        max = counterImpiegati[j];
-                        index = j;
+                }
+                else{
+                    max = counterImpiegati[j];
+                    index = j;
                     }
             }
         }
@@ -235,7 +237,8 @@ public class Task1 implements ITaskStructure {
                 if (element.getLavoriSuTerritorio().size() == max.getLavoriSuTerritorio().size()) {
                     if (element.getNome().compareToIgnoreCase(max.getNome()) < 0)
                         max = element;
-                } else
+                }
+                else
                     max = element;
             }
         }

@@ -1,14 +1,19 @@
-4 3 5
+6 5 6
 i1 geometra gianni bianchi
 i2 ingegnere paolo neri
 i3 architetto giulia rossi
 i4 architetto carlo viola
+i5 ingegnere luca verdi
+i6 geometra maria grigio
 c1 grande l1,l2
 c2 piccola l3
-c3 media l4,l5
-l1 i3,i4 ristrutturazione 150 40
-l2 i1 ritocco 14 2
-l3 i1,i2 costruzione 270 160
-l4 i4 ritocco 21 3
-l5 i3,i4 costruzione 150 90
+c3 media l4,l5,l6
+c4 grande -
+c5 media l7
+l1 i3,i4 ristrutturazione 160 40
+l2 i1 ritocco 12 2
+l3 i1,i2 costruzione 260 160
+l4 i4 ritocco 20 3
+l5 i3,i4 costruzione 145 90
+l6 i5,i6 ristrutturazione 310 200
 TASK1
