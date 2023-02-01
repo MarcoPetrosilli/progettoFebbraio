@@ -64,7 +64,6 @@ public class Task3 implements ITaskStructure {
                 giorniDaTrascorrere=ultimaDurata;
             }
         }
-        System.out.println(tempoTot);
         return tempoDisponibile>=tempoTot;
     }
 
