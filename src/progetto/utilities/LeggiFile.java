@@ -1,12 +1,7 @@
 package progetto.utilities;
 
-import progetto.classes.Citta;
-import progetto.classes.Impiegato;
-import progetto.classes.Lavoro;
-import progetto.enums.TipoCitta;
-import progetto.enums.TipoImpiegato;
-import progetto.enums.TipoLavoro;
-import progetto.enums.TipoTask;
+import progetto.classes.*;
+import progetto.enums.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="cambiamento commenti/region">
+    <list default="true" id="0e7c8eb9-cd83-4bec-9907-666e10464764" name="Changes" comment="test e fix task1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/classes/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/classes/Progetto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/Progetto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/progetto/es_input_A_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/es_input_A_1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/progetto/es_input_A_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/es_input_A_2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/progetto/es_input_A_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/es_input_A_3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/progetto/tasks/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/progetto/tasks/Task3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,14 +68,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="progetto.classes.Progetto" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="progetto.classes.Progetto" />
+    <configuration name="Progetto" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="progetto.Progetto" />
       <module name="Progetto" />
       <option name="REDIRECT_INPUT" value="true" />
-      <option name="INPUT_FILE" value="$PROJECT_DIR$/src/progetto/es_input_A_3.txt" />
+      <option name="INPUT_FILE" value="$PROJECT_DIR$/src/progetto/es_input_A_2.txt" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="progetto.classes.*" />
+          <option name="PATTERN" value="progetto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675260441048</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="test e fix task1">
+      <created>1675270150985</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675270150985</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test e fix task1">
+      <created>1675270222093</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675270222093</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,6 +161,22 @@
     <MESSAGE value="inserimento enum tipoLavoro e tipoImpiegato" />
     <MESSAGE value="enum TipoTask" />
     <MESSAGE value="cambiamento commenti/region" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambiamento commenti/region" />
+    <MESSAGE value="test e fix task1" />
+    <option name="LAST_COMMIT_MESSAGE" value="test e fix task1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Progetto$progetto_classes_Progetto.ic" NAME="progetto.classes.Progetto Coverage Results" MODIFIED="1675464678066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>progetto.classes.*</FILTER>
+    </SUITE>
   </component>
 </project>

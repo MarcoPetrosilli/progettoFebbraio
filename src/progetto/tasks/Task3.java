@@ -77,6 +77,7 @@ public class Task3 implements ITaskStructure {
 
     public int calcolaTemp(TipoLavoro ultimoTipo,double ultimaDurata){
         double coeffPercentuale=0;
+
         if(ultimoTipo.equals(TipoLavoro.costruzione))
             coeffPercentuale=0.2;
 
@@ -88,5 +89,4 @@ public class Task3 implements ITaskStructure {
         return (int)contoNonArr;
     }
     //endregion
-
 }

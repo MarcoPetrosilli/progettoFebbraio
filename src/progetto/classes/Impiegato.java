@@ -28,7 +28,7 @@ public class Impiegato {
         this.nome=nome;
         this.cognome=cognome;
         this.tipo=tipo;
-        this.abilitato=true; //Da determinare poi quando utilizzare il settaAbilitato
+        this.abilitato=true;
     }
 
     public String getID() {

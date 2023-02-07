@@ -1,5 +1,8 @@
-package progetto.classes;
+package progetto;
 
+import progetto.classes.Citta;
+import progetto.classes.Impiegato;
+import progetto.classes.Lavoro;
 import progetto.interfaces.ITaskStructure;
 import progetto.utilities.IntBoxer;
 import progetto.utilities.LeggiFile;

@@ -1,8 +1,6 @@
 package progetto.tasks;
 
-import progetto.classes.Citta;
-import progetto.classes.Impiegato;
-import progetto.classes.Lavoro;
+import progetto.classes.*;
 import progetto.interfaces.ITaskStructure;
 
 import java.util.ArrayList;
@@ -124,7 +122,7 @@ public class Task2 implements ITaskStructure {
                     case ritocco -> ritocco++;
                     case costruzione -> costruzione++;
                 }
-                if(ristrutturazione>1 || ritocco>1 || costruzione>1) return false;
+                if ((ristrutturazione>1 && ritocco>1) || (ristrutturazione>1 && costruzione>1) || (costruzione>1 && ritocco>1)) return false;
             }
             ristrutturazione = 0;
             ritocco = 0;
@@ -159,7 +157,7 @@ public class Task2 implements ITaskStructure {
                     case architetto -> architetto++;
                     case geometra -> geometra++;
                 }
-                if(ingegnere>1 || architetto>1 || geometra>1) return false;
+                if ((ingegnere>1 && architetto>1) || (ingegnere>1 && geometra>1) || (geometra>1 && architetto>1)) return false;
             }
             ingegnere = 0;
             architetto = 0;

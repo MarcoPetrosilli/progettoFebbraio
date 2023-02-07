@@ -1,8 +1,6 @@
 package progetto.tasks;
 
-import progetto.classes.Citta;
-import progetto.classes.Impiegato;
-import progetto.classes.Lavoro;
+import progetto.classes.*;
 import progetto.enums.TipoCitta;
 import progetto.interfaces.ITaskStructure;
 
