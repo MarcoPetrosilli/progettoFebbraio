@@ -41,19 +41,21 @@ public class Task3 implements ITaskStructure {
         for(int i=0;i<serieLavori.size();i++){
             if(ultimoTipo!=null && ultimaDurata!=0){
                 //Assegna temp in base a ultimoTipo
-                temp=this.calcolaTemp(ultimoTipo,ultimaDurata);
+                temp=this.calcolaTemp(ultimoTipo,ultimaDurata,serieLavori.get(i).getTipo());
                 //Trascorri giorni e aggiorna daTrascorrere
                 giorniDaTrascorrere -= temp;
                 ultimaDurata -=temp;
-                giorniDaTrascorrere=max(giorniDaTrascorrere,ultimaDurata);
+                giorniDaTrascorrere=max(giorniDaTrascorrere,serieLavori.get(i).getDurata());
                 //Aggiorna trascorsi
                 giorniTrascorsi += temp;
                 //Aggiorna ultimoTipo e ultimaDurata
-                ultimoTipo=serieLavori.get(i).getTipo();
-                ultimaDurata=serieLavori.get(i).getDurata();
+                if(!(serieLavori.get(i).getTipo().equals(TipoLavoro.ritocco))){
+                    ultimoTipo=serieLavori.get(i).getTipo();
+                    ultimaDurata=serieLavori.get(i).getDurata();
+                }
                 //Controlla se è ultima iterazione
                 if(i==(serieLavori.size()-1)){
-                    ultimaDurata=max(ultimaDurata,giorniDaTrascorrere);
+                    ultimaDurata=max(serieLavori.get(i).getDurata(),giorniDaTrascorrere);
                     tempoTot=calcolaTot(ultimaDurata,giorniTrascorsi);
                 }
             }
@@ -75,7 +77,10 @@ public class Task3 implements ITaskStructure {
         return ultimaDurata+giorniTrascorsi;
     }
 
-    public int calcolaTemp(TipoLavoro ultimoTipo,double ultimaDurata){
+    public int calcolaTemp(TipoLavoro ultimoTipo,double ultimaDurata,TipoLavoro tipoAttuale){
+        if(tipoAttuale.equals(TipoLavoro.ritocco))
+            return 0;
+
         double coeffPercentuale=0;
 
         if(ultimoTipo.equals(TipoLavoro.costruzione))

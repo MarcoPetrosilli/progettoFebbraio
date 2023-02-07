@@ -1,0 +1,50 @@
+9 7 16
+i1 geometra gianni bianchi
+i2 ingegnere paolo neri
+i3 architetto giulia rossi
+i4 architetto carlo viola
+i5 ingegnere luca verdi
+i6 geometra franco bianchi
+i7 geometra mario rossi
+i8 architetto alessandro bianchi
+i9 ingegnere matteo verdi
+c1 grande l1,l2,l3,l4
+c2 piccola l5,l6
+c3 media l7,l8,l9
+c4 grande l10,l11
+c5 piccola l3,l4
+c6 media l1,l2
+c7 grande l12
+l1 i3,i4 ristrutturazione 150 40
+l2 i1 ritocco 14 2
+l3 i1,i2 costruzione 270 160
+l4 i4 ritocco 21 3
+l5 i5 ritocco 45 20
+l6 i6 ritocco 35 18
+l7 i3 ritocco 170 80
+l8 i7 costruzione 56 30
+l9 i2,i5 costruzione 50 35
+l10 i8 ristrutturazione 200 110
+l11 i9 ristrutturazione 180 95
+l12 i6,i7 ristrutturazione 300 180
+l13 i3 ritocco 170 80
+l14 i3 ritocco 170 80
+l15 i3 ritocco 170 80
+l16 i3 ritocco 170 80
+TASK3 600 16
+l5
+l2
+l3
+l4
+l1
+l15
+l6
+l7
+l11
+l8
+l9
+l16
+l12
+l14
+l10
+l13

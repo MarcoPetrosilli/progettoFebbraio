@@ -35,14 +35,6 @@ public class Impiegato {
         return ID;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
     public TipoImpiegato getTipo() {
         return tipo;
     }
